@@ -1,18 +1,39 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <div>
+    <Button type="primary">aa</Button>
+    <Rate v-model:value="score" allow-half />
+  </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
-import HelloWorld from './components/HelloWorld.vue'
+import { defineComponent, ref, reactive } from "vue";
+import { Button, Layout, Rate } from "ant-design-vue";
 
 export default defineComponent({
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-})
+  name: "App",
+  components: { Button, Layout, Rate },
+  setup() {
+    const name = ref("lyq");
+    const score = ref(3.4);
+    const data = reactive({
+      sku: [
+        {
+          period: "1day",
+          price: "10",
+        },
+        {
+          period: "2day",
+          price: "15",
+        },
+      ],
+    });
+    return {
+      name,
+      data,
+      score,
+    };
+  },
+});
 </script>
 
 <style>

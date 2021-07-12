@@ -13,12 +13,12 @@ function hotModuleUnregisterModule(name: string) {
   }
 }
 
-const NAME = "error";
+const NAME = "error2";
 hotModuleUnregisterModule(NAME);
 @Module({ dynamic: true, namespaced: true, store, name: NAME })
 class Error extends VuexModule {
   errorList: any[] = [];
-  count = 2;
+  count: any = 2;
   wheels = 2;
 
   get getErrorInfoState() {
@@ -39,7 +39,12 @@ class Error extends VuexModule {
   }
   @Mutation
   commitCount(extra: any) {
-    this.count += extra;
+    this.count = new Date();
+    // this.count += extra;
+    console.log(this.count === extra);
+    // this.count = extra;
+    this.count = 1;
+    console.log(extra);
     debugger;
   }
   @Mutation

@@ -36,7 +36,7 @@ export type ErrorState = {
   errorListCountState: any;
 };
 
-const NAME = "error";
+const NAME = "error1";
 hotModuleUnregisterModule(NAME);
 @Module({ dynamic: true, namespaced: true, store, name: NAME })
 class Error extends VuexModule implements ErrorState {

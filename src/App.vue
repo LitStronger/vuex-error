@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Button type="primary">aa</Button>
+    <Button type="primary">{{ name.aa.bb }}</Button>
     <Rate v-model:value="score" allow-half />
   </div>
 </template>
@@ -8,6 +8,7 @@
 <script lang="ts">
 import { defineComponent, ref, reactive } from "vue";
 import { Button, Layout, Rate } from "ant-design-vue";
+import { errorStore } from "./store/errorTest";
 
 export default defineComponent({
   name: "App",
@@ -15,21 +16,10 @@ export default defineComponent({
   setup() {
     const name = ref("lyq");
     const score = ref(3.4);
-    const data = reactive({
-      sku: [
-        {
-          period: "1day",
-          price: "10",
-        },
-        {
-          period: "2day",
-          price: "15",
-        },
-      ],
-    });
+    console.log("aa");
+
     return {
       name,
-      data,
       score,
     };
   },
